@@ -4,6 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 const UserDashboard = () => {
   const { user } = useAuth();
   const [dashboardData, setDashboardData] = useState(null);
@@ -12,7 +14,7 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await axios.get('/api/dashboard/user');
+        const response = await axios.get(`${API_URL}/api/dashboard/user`);
         setDashboardData(response.data.data);
       } catch (error) {
         console.error('Error fetching dashboard data:', error);
