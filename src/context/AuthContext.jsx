@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-// API base URL - uses environment variable or falls back to proxy
 const API_URL = import.meta.env.VITE_API_URL || '';
 
 export const useAuth = () => {
